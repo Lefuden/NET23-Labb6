@@ -9,8 +9,8 @@ namespace Labb6
     internal class Fish : Animal
     {
         private bool WaterType {get; }
-        public Fish(string race = "fish", string name = "Bob", string colour = "seethrough", string legs = "5", string fur = "no", bool waterType = true) 
-            : base(race, name, colour, legs, fur)
+        public Fish(string name = "Bob", string colour = "seethrough", string race = "fish", int height = 15, int weight = 1, bool waterType = true) 
+            : base(name, colour, race, height, weight)
         {
             WaterType = waterType;
         }
@@ -22,15 +22,20 @@ namespace Labb6
         //unique method
         internal void Swim()
         {
-            Console.WriteLine("they can swim really well");
+            Console.WriteLine("fish can swim really well");
         }
         internal override void LivesWhere()
         {
-            Console.WriteLine("they tend to live underwater");
+            Console.WriteLine("fish tend to live underwater");
         }
         internal override void MakeSound()
         {
             Console.WriteLine("blub blub..");
+        }
+        internal override void AllInfo()
+        {
+            base.AllInfo();
+            Swim();
         }
     }
 }
