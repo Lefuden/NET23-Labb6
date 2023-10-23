@@ -9,8 +9,8 @@ namespace Labb6
     internal class Bird : Animal
     {
         private bool Dive {get; }
-        public Bird(string race = "bird", string name = "Charles", string colour = "blue", string legs = "12", string fur = "no", bool dive = true) 
-            : base(race, name, colour, legs, fur)
+        public Bird(string name = "Charles", string colour = "blue", string race = "bird", int height = 23, int weight = 9, int legs = 4, bool dive = true) 
+            : base(name, colour, race, height, weight, legs)
         {
             Dive = dive;
         }
@@ -31,6 +31,11 @@ namespace Labb6
         internal override void MakeSound()
         {
             Console.WriteLine("chirp chirp");
+        }
+        internal override void AllInfo()
+        {
+            base.AllInfo();
+            Fly();
         }
     }
 }

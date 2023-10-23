@@ -11,8 +11,9 @@ namespace Labb6
     {
         //added a unique property to the monkeys
         internal bool CanClimb {get; set; }
-        public Monkey(string race = "monkey", string name = "Bill", string colour = "pink", string legs = "7", string fur = "long", bool canClimb = false) 
-            : base(race, name, colour, legs, fur)
+        public Monkey(string name = "Bill", string colour = "pink", string race = "monkey", int height = 2, 
+            int weight = 40, int legs = 7, string fur = "long", bool canClimb = false) 
+            : base(name, colour, race, height, weight, legs, fur)
         {
             CanClimb = canClimb;
         }
@@ -29,19 +30,25 @@ namespace Labb6
         }
         internal override void LivesWhere()
         {
-            Console.WriteLine("they prefer the jungle");
+            Console.WriteLine("most monkeys prefer the jungle");
         }
         internal override void MakeSound()
         {
-            Console.WriteLine("oo oo aa aa!");
+            Console.WriteLine("ook ook");
+        }
+        internal override void AllInfo()
+        {
+            base.AllInfo();
+            Behaviour();
         }
     }
 
     internal class Gorilla : Monkey
     {
         private bool IsBig { get; }
-        public Gorilla(string race = "gorilla", string name = "Arnold", string colour = "black", string legs = "2", string fur = "short", bool canClimb = true, bool isBig = true) 
-            : base(race, name, colour, legs, fur)
+        public Gorilla(string name = "Arnold", string colour = "black", string race = "gorilla", int height = 200, 
+            int weight = 182, int legs = 2, string fur = "short", bool canClimb = true, bool isBig = true) 
+            : base( name, colour, race, height, weight, legs, fur)
         {
             CanClimb = canClimb;
             IsBig = isBig;
@@ -50,7 +57,7 @@ namespace Labb6
         internal override void AnimalStats()
         {
             base.AnimalStats();
-            Console.WriteLine(IsBig ? "He's a big gorilla" : "He's a small gorilla");
+            Console.WriteLine(IsBig ? $"{Name} is a big gorilla" : $"{Name} is a small gorilla");
         }
         //mr gorilla wants his own sound
         internal override void MakeSound()
@@ -61,17 +68,22 @@ namespace Labb6
 
     internal class Macaque : Monkey
     {
+        //i'm not a monkey expert, but i think they all like bananas.
         private bool LikesBananas { get; }
-        public Macaque(string race = "macaque", string name = "Sylvester", string colour = "white", string legs = "2", string fur = "flat", bool canClimb = false, bool likesBananas = true) 
-            : base(race, name, colour, legs, fur)
+        public Macaque(string name = "Sylvester", string colour = "white", string race = "macaque", int height = 57, 
+            int weight = 22, int legs = 2, string fur = "flat", bool canClimb = false, bool likesBananas = true) 
+            : base(name, colour, race, height, weight, legs, fur, canClimb)
         {
-            CanClimb = canClimb;
             LikesBananas = likesBananas;
         }
         internal override void AnimalStats()
         {
             base.AnimalStats();
-            Console.WriteLine(LikesBananas ? "He loves bananas" : "He does not like bananas");
+            Console.WriteLine(LikesBananas ? $"{Name} loves bananas" : $"{Name} does not like bananas");
+        }
+        internal override void MakeSound()
+        {
+            Console.WriteLine("oo oo aa aa!");
         }
     }
 }

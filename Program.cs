@@ -5,25 +5,17 @@ namespace Labb6
     {
         static void Main(string[] args)
         {
-            Fish myFish = new("clownfish", "Nemo", "white and orange", "no", "no", false);
-            myFish.AnimalStats();
-            myFish.MakeSound();
-            myFish.Swim();
-            myFish.LivesWhere();
+            //a whole bunch of animals being created and then calling various methods to output data
+            Fish myFish = new("Nemo", "white and orange","clownfish", 5, 1, false);
+            myFish.AllInfo();
             Console.WriteLine();
 
-            Bird myBird = new("crow", "Will", "black", "2", "no", false);
-            myBird.AnimalStats();
-            myBird.MakeSound();
-            myBird.Fly();
-            myBird.LivesWhere();
+            Bird myBird = new("Will", "black","crow", 22, 8, 2, false);
+            myBird.AllInfo();
             Console.WriteLine();
 
-            Monkey myMonkey = new("orangutang", "Karl", "orange", "2", "bushy", true);
-            myMonkey.AnimalStats();
-            myMonkey.MakeSound();
-            myMonkey.Behaviour();
-            myMonkey.LivesWhere();
+            Monkey myMonkey = new("Karl", "orange", "orangutang", 120, 44, 2, "bushy", true);
+            myMonkey.AllInfo();
             Console.WriteLine();
 
             Gorilla myGorilla = new();
